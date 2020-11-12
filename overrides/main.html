@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block config %}
+{% if "localsearch" in config["plugins"] %}
+<script src="{{ 'assets/javascripts/iframe-worker.js' | url }}"></script>
+<script src="{{ 'search/search_index.js' | url }}"></script>
+{% endif %}
+{% endblock %}
+
+
+
+{% block htmltitle %}
+  <title> Dokumentation | EKS InTec</title>
+{% endblock %}
+
+
+{% block announce %}
+    <button class="lan_icon" onclick="clickLangBtn()"  id="de" >  {%include ".icons/eksicons/deutschland.svg"%} </button>
+    <button class="lan_icon" onclick="clickLangBtn()" id="en" >  {%include ".icons/eksicons/grossbritannien.svg"%} </button> 
+    <button class="lan_icon" onclick="clickLangBtn()" id="sp" >  {%include ".icons/eksicons/spain.svg"%}   </button> 
+    
+{%  endblock  %}
+
+{% block site_nav  %}
+    <!-- Main navigation -->
+      {% if nav %}
+      <div
+         class="md-sidebar md-sidebar--primary"
+         data-md-component="navigation"
+      >
+      {% if page.title != 'Home' %}
+   
+      <div class="versionDropdownDiv" id="versionDropdown">
+        <button onclick="clickVersionBtn()" class="versionbtn" id="versionbtnId" ></button>
+           <div id="versionDropdownContent" class="dropdown-content">
+          </div>
+      </div>
+   
+       {% endif  %}
+   
+   
+      <div class="md-sidebar__scrollwrap">
+         <div class="md-sidebar__inner">
+            {% include "partials/nav.html" %}
+         </div>
+      </div>
+      </div>
+   
+     {% endif %}
+   
+    <!-- Table of contents -->
+    {% if page.toc %}
+      <div
+        class="md-sidebar md-sidebar--secondary"
+         data-md-component="toc"
+       >
+       <div class="md-sidebar__scrollwrap">
+         <div class="md-sidebar__inner">
+           {% include "partials/toc.html" %}
+         </div>
+         </div>
+         </div>
+    {% endif %}
+   
+   {% endblock   %}
+
+
+
+<!--Tab Block-->
+
+{% block tabs  %}
+
+{% set class = "md-tabs" %}
+{% if page.ancestors | length > 0 %}
+  {% set class = "md-tabs md-tabs--active" %}
+{% endif %}
+
+<!-- Tabs with outline -->
+<nav
+  class="{{ class }}"
+  aria-label="{{ lang.t('tabs.title') }}"
+  data-md-component="tabs"
+>
+<div  class="md-tabs__inner md-grid">
+  <ul  class="md-tabs__list"> 
+   {% for item in config.extra.menu %}
+    {% for nav_item in nav %}
+     {% set navItem = nav_item.title %}
+     {% if navItem == "RF%3A%3ASCOUT" %}
+       {% set navItem = navItem | replace ("%3A%3A" , "::") %}
+     {% endif %}
+     {% if navItem == "RF%3A%3AYAMS" %}
+       {% set navItem = navItem | replace ("%3A%3A" , "::") %}
+     {% endif %}
+     {% if navItem == "RF%3A%3ASUITE®" %}
+       {% set navItem = navItem | replace ("%3A%3A" , "::") %}
+     {% endif %}
+     {% if item == navItem %}
+      {% include "partials/tabs-item.html" %}
+     {% endif %}
+   {% endfor %}
+ {% endfor %}
+</ul>
+</div>
+</nav>
+{% endblock  %}
+
+
+
+{% block footer %}
+<h1> </h1>
+{% endblock  %}
+
+
+
+    
+       

@@ -1,0 +1,65 @@
+site_name: Manuals
+use_directory_urls: false
+
+
+theme: 
+   name: material
+   custom_dir: overrides   
+   palette: 
+       scheme: default
+       primary: blue
+       acctent: blue
+   icon: 
+     logo: eksicons/logo_RF_Suite_weiss
+   favicon: 
+     assets/favicon.ico    
+ 
+   features: 
+       - navigation.tabs
+       - navigation.instant
+   language: en
+
+
+plugins: 
+   - search:
+      lang:
+        - en
+        - de 
+        - es         
+   - localsearch
+   - macros
+
+
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences 
+  - pymdownx.snippets
+  - attr_list 
+  - meta
+  - footnotes
+
+ 
+extra: 
+   rf_scout: 
+     version: "Version 20.13.20"
+     release: "Release: Oktober, 2020"
+   homepage: 
+     url: "http://192.168.41.129:8000/de/index.html"
+   menu: ["Home", "RF::SUITE®", "RF::SCOUT", "RF::YAMS" , "ConnectTools", "Extensions"]
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+
+
+
