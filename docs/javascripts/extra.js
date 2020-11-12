@@ -155,7 +155,7 @@ function initTabDropDownMenu (){
   let as = ul.getElementsByTagName('a');
 
   for(let i = 0; i<as.length; i++){
-    as[i].href = "http://192.168.41.129:8000/RF::SUITE%C2%AE/20.1.08/de/index.html";
+    as[i].href = "http://192.168.41.129:8000/RFSUITE/20.1.08/de/index.html";
   }
   let tabDropdownItem = document.getElementById('ConnectToolsBtn');
   tabDropdownItem.addEventListener("mouseover", function(){
@@ -186,12 +186,12 @@ setTimeout(function(){
 
     let topic = link[3];
     let pathTopic = pathArray[1];
-    if(topic === "RF%3A%3ASCOUT" || topic === "RF%3A%3AYAMS" || topic === "RF%3A%3ASUITE%C2%AE"){
+    /*if(topic === "RF%3A%3ASCOUT" || topic === "RF%3A%3AYAMS" || topic === "RF%3A%3ASUITE%C2%AE"){
       topic = topic.replace("%3A%3A", "::");
     }
     if(pathTopic === "RF%3A%3ASCOUT" || pathTopic === "RF%3A%3AYAMS" || pathTopic === "RF%3A%3ASUITE%C2%AE"){
       pathTopic = pathTopic.replace("%3A%3A", "::");
-    }
+    } */
     
     if(topic.trim() === pathTopic.trim() && link[4] === pathArray[2] && link[5] == pathArray[3]) lis[t].style.display = "block" ;
   }
@@ -309,15 +309,15 @@ liNav[k].style.display = "block";
 function setTitle(res){
   let titleLabel = res[0].getElementsByTagName('label');
 
-  if(titleLabel[1].textContent.trim() === "RF%3A%3ASCOUT"){
+  if(titleLabel[1].textContent.trim() === "RFSCOUT"){
     titleLabel[1].textContent = "RF::SCOUT";
   }
 
-  if(titleLabel[1].textContent.trim() === "RF%3A%3AYAMS"){
+  if(titleLabel[1].textContent.trim() === "RFYAMS"){
     titleLabel[1].textContent = "RF::YAMS";
   }
 
-  if(titleLabel[1].textContent.trim() === "RF%3A%3ASUITE®"){
+  if(titleLabel[1].textContent.trim() === "RFSUITE"){
     titleLabel[1].textContent = "RF::SUITE®";
   }
 
@@ -326,28 +326,15 @@ function setTitle(res){
 
 /* -- Laden einer Datei (version.txt) und aufteilen in Array durch split*/
 function loadFile(filePath) {
-  let windows = false;
   var result = null;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET", filePath, false);
   xmlhttp.send();
   if (xmlhttp.status==200) {
     result = xmlhttp.responseText;
-  }
-
-  if(xmlhttp.status==404){
-     //filePath = filePath.replace("::" , "%3A%3A");
-     filePath = filePath.replace ("::" , "%253A%253A");
-	   xmlhttp.open("GET", filePath, false);
-     xmlhttp.send();
-     windows = true;
-}
-	 if (xmlhttp.status==200) {
-    result = xmlhttp.responseText;
-  }
+  }  
 
   result = result.split("\n");
-  result.push (windows);
 
   return result;
 }
@@ -432,39 +419,20 @@ let lan = getCookie("language");
 switch (tabItem.trim()){
 
      case "RF::SUITE®":
-      version =  loadFile("/RF::SUITE®/versions.txt");
-
-      if(version[version.length -1] === true){
-        // Windows
-       url = "/RF%253A%253ASUITE®/"+version[0]+"/"+lan+"/index.html";
-      }
-      else{
-       url = "/RF::SUITE®/"+version[0]+"/"+lan+"/index.html";
-      }
-      window.location.href = url;
+      version =  loadFile("/RFSUITE/versions.txt");     
+       url = "/RFSUITE/"+version[0]+"/"+lan+"/index.html";
+       window.location.href = url;
       break;
 
      case "RF::SCOUT":
-      version =  loadFile("/RF::SCOUT/versions.txt");
-      if(version[version.length -1] === true){
-        // Windows
-	      url = "/RF%253A%253ASCOUT/"+version[0]+"/"+lan+"/index.html";
-      }
-      else{
-        url = "/RF::SCOUT/"+version[0]+"/"+lan+"/index.html";
-      }
+      version =  loadFile("/RFSCOUT/versions.txt");
+      url = "/RFSCOUT/"+version[0]+"/"+lan+"/index.html";
       window.location.href = url;
 	    break;
 
      case "RF::YAMS":
-	    version =  loadFile("/RF::YAMS/versions.txt");
-      if(version[version.length -1] === true){
-        // Windows
-       url = "/RF%253A%253AYAMS/"+version[0]+"/"+lan+"/index.html";
-      }
-      else{
-       url = "/RF::YAMS/"+version[0]+"/"+lan+"/index.html";
-      }
+	    version =  loadFile("/RFYAMS/versions.txt");
+      url = "/RFYAMS/"+version[0]+"/"+lan+"/index.html";
       window.location.href = url;
       break;
 

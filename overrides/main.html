@@ -86,14 +86,15 @@
    {% for item in config.extra.menu %}
     {% for nav_item in nav %}
      {% set navItem = nav_item.title %}
-     {% if navItem == "RF%3A%3ASCOUT" %}
-       {% set navItem = navItem | replace ("%3A%3A" , "::") %}
+     
+     {% if navItem == "RFSCOUT" %}
+       {% set navItem = "RF::SCOUT" %}
      {% endif %}
-     {% if navItem == "RF%3A%3AYAMS" %}
-       {% set navItem = navItem | replace ("%3A%3A" , "::") %}
+     {% if navItem == "RFYAMS" %}
+       {% set navItem = "RF::YAMS" %}
      {% endif %}
-     {% if navItem == "RF%3A%3ASUITE®" %}
-       {% set navItem = navItem | replace ("%3A%3A" , "::") %}
+     {% if navItem == "RFSUITE" %}
+       {% set navItem = "RF::SUITE®" %}
      {% endif %}
      {% if item == navItem %}
       {% include "partials/tabs-item.html" %}
