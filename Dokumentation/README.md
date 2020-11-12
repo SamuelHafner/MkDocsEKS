@@ -31,11 +31,48 @@ sudo apt install mkdocs
 ```bash
 pip3 install mkdocs-material
 ```
-4. Plugins installieren
+4. Ändern der MkDocs-Material Version.
+Da MkDocs-Material sich immer weiterentwickelt und immer neue Versionen rauskommen, muss man auf die Version zurück, bei der es sicher funktioniert:
+Zur Versione **6.0.1**. <br>
+    1. Schreibe was im freeze drin ist in eine requirements.txt (Ort ist egal) rein
+  ```bash
+  pip3 freeze > requirements.txt
+  ```
+    2. In der requirements.txt nach **mkdocs-material** suchen und von
+  ```bash
+   mkdocs-material== {currentVersion} z.b. 6.1.4
+  ```
+  auf 
+  ```bash
+  mkdocs-material==6.0.1
+  ```
+  ändern.
+  <br>
+     3. pip3 Bibliotheken wieder neu installieren nur diesmal mit der requirements.txt als referenz:
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+  **Exkurs mögliche Fehler beim neuinstallieren speziell bei (pycairo):** <br>
+       - Fehler **pkg-config not found**:
+  ```bash
+  sudo apt-get install -y pkg-config
+  ```
+       - Fehler **No package 'cairo' found**: 
+  ```bash
+  sudo apt install libcairo2-dev
+  ```
+  Dann wieder 
+  ```bash
+  pip3 install -r requirements.txt
+  ```
+  eingeben und ausführen
+
+
+5. Plugins installieren
 ```bash
 pip3 install mkdocs-macros-plugin
 ```
-5. Local Search Plugin installieren
+6. Local Search Plugin installieren
 ```bash
 pip3 install mkdocs-localsearch
 ```
