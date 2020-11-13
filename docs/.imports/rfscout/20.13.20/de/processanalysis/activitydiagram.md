@@ -1,5 +1,5 @@
 
---8<-- "docs/scout/20.13.21/.buttons/button_activitydiagram.md"
+--8<-- "docs/.imports/rfscout/20.13.20/de/buttons/button_activitydiagram.md"
 
 In der Activity Diagram Ansicht werden die Takte angezeigt.
 
