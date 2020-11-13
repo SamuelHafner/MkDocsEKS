@@ -76,6 +76,7 @@ let language = ['de','en','sp','ch'];
 
 let currentLan = getCookie("language");
 
+
 // set Englisch as default Language
 if(currentLan == null){
 setCookie("language","en",true);
@@ -84,70 +85,98 @@ currentLan = getCookie("language");
 // [1] = dir [2] = Version [3] = lang [4] = html datei
 let pathArray = window.location.pathname.split('/');
 
-if(pathArray.length <= 2){
-window.location.href = "/"+currentLan+"/index.html";
-}
-
-initTabDropDownMenu();
-
-let tab_itemsInactive = document.getElementsByName('inactiveTab');
-
-for(let u = 0; u < tab_itemsInactive.length; u++){
-tab_itemsInactive[u].addEventListener('click',function(){
-clickTabMenu(tab_itemsInactive[u].innerHTML,getCookie("language"));
-},false);
-
-}
-
-document.getElementById('searchInput').addEventListener('input',changeSearchResult);
-
-document.getElementById('de').addEventListener("click",function(){
-clickLangBtn("de");
-},false);
-
-document.getElementById('en').addEventListener("click",function(){
-clickLangBtn("en");
-},false);
-
-document.getElementById('sp').addEventListener("click",function(){
-clickLangBtn("sp");
-},false);
 
 changeLanguageContent(currentLan);
 
 
-let logo = document.getElementById('logo').addEventListener ("click",function(){
-window.location.href="/"+currentLan+"/index.html";
-},false);
-
 let url = window.location.href.split('/');
-
 //--- Check if Offline
 if(url[0].trim() !== "http:" &&  url[0].trim() !== "https:"){
-alert("IM OFFLINE");
-// Was soll angezeigt werden wenn Offline?
-}else{
+  hideNoneUsedNav(pathArray,language);
+  let lanIndex = getLanIndex(pathArray,language);
+  let lan = pathArray[lanIndex];
+  changeLanguageContent(lan);
+
+}
+// ONLINE
+else{
+
+  if(pathArray.length <= 2){
+    window.location.href = "/"+currentLan+"/index.html";
+    }
+       
+    
+    let navTab = document.getElementById('navTab');
+    navTab.style.display = "block";
+
+    let tab_itemsInactive = document.getElementsByName('inactiveTab');
+
+    for(let u = 0; u < tab_itemsInactive.length; u++){
+    tab_itemsInactive[u].addEventListener('click',function(){
+    clickTabMenu(tab_itemsInactive[u].innerHTML,getCookie("language"));
+    },false);
+    
+    }
+
+    initTabDropDownMenu();
+
+
+    let langbtns = document.getElementsByClassName('lan_icon');
+    
+
+    for(let k = 0; k < langbtns.length; k++ ){
+      langbtns[k].style.display = "block";
+    }
+
+  document.getElementById('de').addEventListener("click",function(){
+    clickLangBtn("de");
+    },false);
+    
+    document.getElementById('en').addEventListener("click",function(){
+    clickLangBtn("en");
+    },false);
+    
+    document.getElementById('sp').addEventListener("click",function(){
+    clickLangBtn("sp");
+    },false);
+    let logo = document.getElementById('logo').addEventListener ("click",function(){
+      window.location.href="/"+currentLan+"/index.html";
+      },false);
   // [1] = dir [2] = Version [3] = lang [4] = html datei
 //Wenn Startseite, dann keine versions.txt auslesen
 if(pathArray.length > 3){
-// read versions
+  // read versions
 let versions = loadFile("/"+pathArray[1]+"/versions.txt");
 if(versions != null){
+
 buildVersionButton(pathArray,versions);
 hideNoneUsedNav(pathArray,language);
 } // if
 } // if
 } //else
 
+document.getElementById('searchInput').addEventListener('input',function(){changeSearchResult(language)});
+
 }); // Function end
+
+function getLanIndex(pathArray ,language){
+  let lanIndex;
+
+  for(let i = 0; i <language.length; i++ ){
+    if(pathArray.indexOf(language[i]) != -1 ){
+      lanIndex = pathArray.indexOf(language[i]);
+    }
+  }
+
+  return lanIndex;
+
+} // Function End
 
 /* Initialisiere TabMenü */
 function initTabDropDownMenu (){
-
   try{
   let button = document.getElementById('ConnectToolsBtn');
   let rect = button.getBoundingClientRect();
-
   let ul = document.getElementById('tabDropDown');
 
   ul.style.minWidth = rect.width + "px";
@@ -162,7 +191,6 @@ function initTabDropDownMenu (){
     let ctDropDown = document.getElementById('tabDropDown');
     ctDropDown.style.display = "block";
   });
-
 }
 catch(e){
   console.log("Es gab ein Fehler bei der Erstellung des DropdownMenus Function initTabDropDownMenu()" +
@@ -171,25 +199,26 @@ catch(e){
 }
 
 
-function changeSearchResult(e){
+function changeSearchResult(language){
 
-// [1] = dir [2] = Version [3] = lang [4] = html datei
-let pathArray = window.location.pathname.split('/');
-let ol = document.getElementById('result');
-let lis = ol.getElementsByTagName('li');
-
+  // [1] = dir [2] = Version [3] = lang [4] = html datei (if Online)
+  let pathArray = window.location.pathname.split('/');
+  let ol = document.getElementById('result');
+  let lis = ol.getElementsByTagName('li');
+  let link = [];
+   
+  let lanIndex = getLanIndex(pathArray,language);
+  let lan = pathArray[lanIndex];
+  let topic = pathArray[(lanIndex-2)];
+  let version = pathArray[(lanIndex-1)];
+  
 // Timeout, weil dadurch die LIs laden können
 setTimeout(function(){
   for(let t = 0; t<lis.length; t++){
-    // [3] = Thema [4] = Version [5] = lang
-    let link = lis[t].querySelector('a').getAttribute('href').split('/');
-
-    let topic = link[3];
-    let pathTopic = pathArray[1];
-   
-    if(topic.trim() === pathTopic.trim() && link[4] === pathArray[2] && link[5] == pathArray[3]) lis[t].style.display = "block" ;
-  }
- }, 200);
+     link = lis[t].querySelector('a').getAttribute('href').split('/');
+    if(link.indexOf(topic) != -1 && link.indexOf(version) != -1 && link.indexOf(lan) != -1 )  lis[t].style.display = "block" ;
+    }
+ }, 200); 
 }
 
 function changeLanguageContent(currentLan){

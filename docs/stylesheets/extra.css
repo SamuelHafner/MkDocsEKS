@@ -1,6 +1,9 @@
-.md-header, .md-tabs {
+.md-header {
 background-color: #00559f;
 }
+
+
+
  
 .md-header-nav__button.md-logo img, .md-header-nav__button.md-logo svg {
     display: block;
@@ -130,6 +133,7 @@ float: right;
  display: inline-block;
  vertical-align: top; 
  margin: 0.5rem 10px;
+ display: none;
  
 }
 
@@ -155,7 +159,7 @@ margin-left: auto;
 
 .md-tabs{
 background-color: #00559f;
-display: block;
+display: none;
 }
 
 .md-tabs__list{

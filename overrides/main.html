@@ -17,7 +17,7 @@
 {% block announce %}
     <button class="lan_icon" onclick="clickLangBtn()"  id="de" >  {%include ".icons/eksicons/deutschland.svg"%} </button>
     <button class="lan_icon" onclick="clickLangBtn()" id="en" >  {%include ".icons/eksicons/grossbritannien.svg"%} </button> 
-    <button class="lan_icon" onclick="clickLangBtn()" id="sp" >  {%include ".icons/eksicons/spain.svg"%}   </button> 
+    <button class="lan_icon" onclick="clickLangBtn()" id="sp" >  {%include ".icons/eksicons/spain.svg"%}   </button>  
     
 {%  endblock  %}
 
@@ -80,6 +80,7 @@
   class="{{ class }}"
   aria-label="{{ lang.t('tabs.title') }}"
   data-md-component="tabs"
+  id = "navTab"
 >
 <div  class="md-tabs__inner md-grid">
   <ul  class="md-tabs__list"> 
