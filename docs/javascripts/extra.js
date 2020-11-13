@@ -186,13 +186,7 @@ setTimeout(function(){
 
     let topic = link[3];
     let pathTopic = pathArray[1];
-    /*if(topic === "RF%3A%3ASCOUT" || topic === "RF%3A%3AYAMS" || topic === "RF%3A%3ASUITE%C2%AE"){
-      topic = topic.replace("%3A%3A", "::");
-    }
-    if(pathTopic === "RF%3A%3ASCOUT" || pathTopic === "RF%3A%3AYAMS" || pathTopic === "RF%3A%3ASUITE%C2%AE"){
-      pathTopic = pathTopic.replace("%3A%3A", "::");
-    } */
-    
+   
     if(topic.trim() === pathTopic.trim() && link[4] === pathArray[2] && link[5] == pathArray[3]) lis[t].style.display = "block" ;
   }
  }, 200);

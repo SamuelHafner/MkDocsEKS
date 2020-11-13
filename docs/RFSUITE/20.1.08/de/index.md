@@ -33,7 +33,7 @@ pip3 install mkdocs-material
 ```
 4. Ändern der MkDocs-Material Version.
 Da MkDocs-Material sich immer weiterentwickelt und immer neue Versionen rauskommen, muss man auf die Version zurück, bei der es sicher funktioniert:
-Zur Versione **6.0.1**. <br>
+Zur Version **6.0.1**. <br>
     1. Schreibe was im freeze drin ist in eine requirements.txt (Ort ist egal) rein
   ```bash
   pip3 freeze > requirements.txt
@@ -79,7 +79,8 @@ pip3 install mkdocs-localsearch
 <sub> Falls pip3 nicht funktioniert, kann es sein, dass nur pip installiert wurde, deshalb jeweils pip3 mit pip ersetzen</sub>
 
 #### Windows
-Folge dieser [Installation](http://learn.openwaterfoundation.org/owf-learn-mkdocs/install/#install-on-windows)
+Folge dieser [Installation](http://learn.openwaterfoundation.org/owf-learn-mkdocs/install/#install-on-windows) und 
+folge danach der Installation von Linux **ab** Schritt 4
 
 ### HTML - Seiten bauen und Server starten
 Die mkDocs - Befehle funktionieren nur in dem Ordnern, indem die **mkdocs.yml** Datei vorhanden ist. 
@@ -118,7 +119,7 @@ http://IP-AdresseVM:8000
 Die Strukturierung in MkDocs ist wie folgt: 
 #### /docs
 In den /docs Ordner werden alle **.md** Datein eingefügt und geschrieben, bzw. gespeichert.
-Dort gibt es 2 spezielle Ordner namen: **javascripts** und **stylesheets**, in diesen befinden sich die Javascript- Datei **extra.js** und die CSS - Datei **extra.css**. 
+Dort gibt es zusätzlich 2 spezielle Ordner namen: **javascripts** und **stylesheets**, in diesen befinden sich die Javascript- Datei **extra.js** und die CSS - Datei **extra.css**. 
 
 #### /site
 Dieser Ordner wird automatisch erstellen, sobald man einem die HTML-Seiten gebaut hat ( Siehe Abschnitt `HTML - Seiten bauen`).
@@ -133,7 +134,7 @@ Mkdocs - Material besitzt standardisierte HTML - Seiten, diese können hier übe
 #### Detailierter Aufbau von /docs
 In /docs sind jeweils die Ordner angezeigt, die als Oberes Thema gelten z.B. RF::SCOUT usw.
 In den Ordnern stehen danach jeweils die Versionen der Dokumentation darin und eine versions.txt (**Mehr dazu unter:**[`Versionierung`](#versionierung))
-Unter jeder Version gibt es einen Ordner für jede einzelne Sprache und darin sind die **.md**- Dateien enhalten.
+Unter jeder Version gibt es einen Ordner für jede einzelne Sprache und darin sind die **.md**- Dateien enthalten.
 **WICHTIG:** In jedem Ordner muss eine **index.md** - Datei vorhanden sein.
 
 Beispiel: 
@@ -143,9 +144,9 @@ docs site mkdosc.yml overrides  // Root Ordner
 
 $cd docs
 $ls 
-ConnectTools  Extensions  RF::SCOUT  RF::SUITE®  RF::YAMS  assets  de  en  javascripts  sp  stylesheets // docs Ordner
+ConnectTools  Extensions  RFSCOUT  RFSUITE  RFYAMS  assets  de  en  javascripts  sp  stylesheets // docs Ordner
 
-$cd RF::SCOUT
+$cd RFSCOUT
 $ls
 20.13.19  20.13.20  20.13.21  versions.txt // RF::SCOUT Ordner
 
@@ -162,9 +163,8 @@ index.md  + Jegliche .md Dateien
 
 Die Erstellung des Menüs funktioniert wie folgt:
 
-1. Nennen der Dateien in Docs (/docs) Ordner, wie sie für das Menü heißen sollen z.b. RF::SCOUT , RF::YAMS etc.
-2. In der mkdocs.yml unter extra -> menu: ein Array erstellen, dass die **Reihenfolge**  des Menüs bestimmen soll
-**Achtung:**  Die Namen in dem Array sollen genau wie die der Ordner heißen.
+1. Grundsätzlich werden die 1. Ordner die in Docs vorkommen, als Oberes Menü dargestellt und auch so benannt
+2. In der mkdocs.yml unter extra -> menu: ein Array erstellen, dass die **Reihenfolge**  des Menüs bestimmen soll und die genauen Namen.
 
 z.b.
 ```
@@ -179,48 +179,50 @@ In der Datei **overrides/main.html** unter dem block **tabs** steht folgender Co
   <div  class="md-tabs__inner md-grid">
    <ul  class="md-tabs__list"> 
    {% raw %}
-    {% for item in config.extra.menu %}
-     {% for nav_item in nav %}
-      {% set navItem = nav_item.title %}
-      {% if navItem == "RF%3A%3ASCOUT" %}
-        {% set navItem = navItem | replace ("%3A%3A" , "::") %}
-      {% endif %}
-      {% if navItem == "RF%3A%3AYAMS" %}
-        {% set navItem = navItem | replace ("%3A%3A" , "::") %}
-      {% endif %}
-      {% if navItem == "RF%3A%3ASUITE®" %}
-        {% set navItem = navItem | replace ("%3A%3A" , "::") %}
-      {% endif %}
-      {% if item == navItem %}
-       {% include "partials/tabs-item.html" %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
+    {% for item in config.extra.menu %} 
+    {% for nav_item in nav %}
+     {% set navItem = nav_item.title %}  
+     {% if navItem == "RFSCOUT" %}    
+       {% set navItem = "RF::SCOUT" %}
+     {% endif %}
+     {% if navItem == "RFYAMS" %}
+       {% set navItem = "RF::YAMS" %}
+     {% endif %}
+     {% if navItem == "RFSUITE" %}
+       {% set navItem = "RF::SUITE®" %}
+     {% endif %}
+     {% if item == navItem %}
+      {% include "partials/tabs-item.html" %}
+     {% endif %}
+   {% endfor %}
+ {% endfor %}
  {% endraw %}
  </ul>
 </div>
 ```
-Hier wird das erstellte Menü in der mkdocs.yml mit den einzelnen Ordnern, die in **/docs** definiert sind verglichen und dann erst angezeigt, wenn der gewünschte Menüpunkt mit dem in **/docs** übereinstimmt und somit kann die Reihenfolge bestimmt werden.
+Hier wird das erstellte Menü in der mkdocs.yml mit den einzelnen Ordnern, die in **/docs** definiert sind verglichen, dementsprechend umbenannt, wenn man einen anderen Namen haben möchte, als der den in /docs steht und dann erst angezeigt, wenn der gewünschte Menüpunkt mit dem in **/docs** übereinstimmt und  somit kann die Reihenfolge und die Namensänderung bestimmt werden.
 
-#####  Vorsicht bei der Nutzung unter Windows
-Windows lässt keine : (Doppelpunkte) in Ordnernamen zu und wandelt diese dementsprechend in Hexadezimal um, hier: %3A. Dieses wird hier abgefangen (s.o.) und mit einem : (Doppelpunkt) ersetzt, damit die Menüerstellung funktioniert.
-Zustäzlich muss es im HTML - Content auch nochmal geändert werden: 
-Das macht man in der **extra.js** - Datei in der Funktion setTitle():
+In der Funktion setTitle werden nun die Dinge geändert, wie Mkdocs automatisch von dem Ordnernamen holt und anzeigt zu dem gewünschten Text.
 ```js
-function  setTitle(res){
-let  titleLabel = res[0].getElementsByTagName('label');
-if(titleLabel[1].textContent.trim() === "RF%3A%3ASCOUT"){
-titleLabel[1].textContent = "RF::SCOUT";
-}
-if(titleLabel[1].textContent.trim() === "RF%3A%3AYAMS"){
-titleLabel[1].textContent = "RF::YAMS";
-}
-if(titleLabel[1].textContent.trim() === "RF%3A%3ASUITE®"){
-titleLabel[1].textContent = "RF::SUITE®";
-}
-}
+function setTitle(res){
+  let titleLabel = res[0].getElementsByTagName('label');
+
+  if(titleLabel[1].textContent.trim() === "RFSCOUT"){
+    titleLabel[1].textContent = "RF::SCOUT";
+  }
+
+  if(titleLabel[1].textContent.trim() === "RFYAMS"){
+    titleLabel[1].textContent = "RF::YAMS";
+  }
+
+  if(titleLabel[1].textContent.trim() === "RFSUITE"){
+    titleLabel[1].textContent = "RF::SUITE®";
+  }
+
+} 
 ```
-Dort wird abgefangen, welcher Text mit geändert werden soll und wird dann dementsprechend geändert
+
+
 
 #### Wenn auf ein Menütab gecklickt wird
 Falls das Menü erfolgreich erstellt wurde, muss man noch einen Eventlistener hinzufügen, mit dem man zwischen den Menüs hin und her wechseln kann:
@@ -236,33 +238,18 @@ clickTabMenu(tab_itemsInactive[u].innerHTML,getCookie("language"));
 ```
 2. In der Funktion **clickTabMenu()** jeweils die Fälle in einem Switch Case abfangen und dann weiterleiten: 
 ```js
-case  "RF::SUITE®":
-version = loadFile("/RF::SUITE®/versions.txt");
-if(version[version.length -1] === true){
-// Windows
-url = "/RF%253A%253ASUITE®/"+version[0]+"/"+lan+"/index.html";
-}
-else{
-url = "/RF::SUITE®/"+version[0]+"/"+lan+"/index.html";
-}
-window.location.href = url;
-break;
-```
-##### Unter Windows
-Aufgrund von Windows, kann evtl die URL die man weiterleiten muss, anders heißen (z.b. lässt Windows keine Doppelpunkte im Ordnernamen zu) . Deshalb gibt es in jedem Case, bei dem die URL auf Windows anders heißen könnte, z.b. ein Doppelpunkt im Ordnernamen eine weitere IF-Anweisung, die das abfängt und überprüft:
-```js
-if(version[version.length -1] === true){
-// Windows
-url = "/RF%253A%253ASUITE®/"+version[0]+"/"+lan+"/index.html";
-}
-```
-Falls es jedoch keine andere URL auf Windows geben sollte benötigt man die IF-Anweisung nicht
-```js
-case  "ConnectTools":
-version = loadFile("/ConnectTools/versions.txt");
-url = "/ConnectTools/"+version[0]+"/"+lan+"/index.html";
-window.location.href = url;
-break;
+case "RF::SUITE®":
+      version =  loadFile("/RFSUITE/versions.txt");     
+       url = "/RFSUITE/"+version[0]+"/"+lan+"/index.html";
+       window.location.href = url;
+      break;
+
+case "RF::SCOUT":
+      version =  loadFile("/RFSCOUT/versions.txt");
+      url = "/RFSCOUT/"+version[0]+"/"+lan+"/index.html";
+      window.location.href = url;
+	    break;
+case ... :
 ```
 
 
@@ -272,9 +259,8 @@ Will man ein Dropdownmenü zusätzlich zu der Menüleiste oben erstellen, geht m
 
 In diesem Beispiel wurde ein DropdownMenü für ConnectTools erstellt: 
 
-1. In dem Ordner **overrides/partials** in der Datei tabs-item.html, jeweils das gewünsche Menü abfragen und dort dann die DropdownListe hinzufügen, hier wird auch jeweils Unterschieden, ob das Menüitem momentan aktiv ist, oder nicht!
+1. In dem Ordner **overrides/partials** in der Datei tabs-item.html, jeweils das gewünsche Menü abfragen zu dem ein Dropdown angezeigt werden soll und dort dann die DropdownListe hinzufügen, hier wird auch jeweils Unterschieden, ob das Menüitem momentan aktiv ist, oder nicht!
 Gewünsches Menüitem wird mit if abgefragt und dann jeweils, das Dropdown menü hinzugefügt mit dem ul Tag.
-Es wird dabei ebenfalls unterschieden, ob das Item Aktiv ist oder nicht! 
 
 ```html
 {% raw %}
@@ -338,15 +324,14 @@ style="color: #ffffff"
 
   2. In der Datei **docs/extra.js** in der Funktion **initTabDropDownMenu()** 
   wird der EventListener hinzugefügt, um es bei dem Mouseover des Menüitems das DropdownMenü anzeigen   zu lassen und bei der Funktion **window.onclick()**, wird es wieder ausgeblendet, wenn man auf den Bildschirm klickt.
-  3. Es kann frei Entschieden werden, ob man über HTML in **tabs-item.html** die Verlinkung aktivieren möchte, oder über JavaScript in **extra.js**! In diesem Beispiel war es in JavaScript. 
-
+  3. Es kann frei Entschieden werden, ob man über HTML in **tabs-item.html** die Verlinkung (href Tags) aktivieren möchte, oder über JavaScript in **extra.js**! In diesem Beispiel ist es in JavaScript. 
 
 
 ## Bennenen der Seiten und des Navigationsmenüs (links).
 
 Um die Seiten und **dadruch** das Menü links richtig zu benennen, gibt es verschiedene Möglichkeiten:
 
-1. Die beste Möglichkeit ist es, jeder .md Datei einen Titel zu geben. Dies funktioniert mit sogenannten Meta Tags am Anfang einer .md Datei:
+1. Die beste Möglichkeit ist es, jeder .md Datei einen Titel zu geben. Dies funktioniert mit sogenannten Meta Tags am Anfang einer .md Datei und es funktioniert **IMMER**:
 ```
 ___
 title: Home
@@ -364,8 +349,18 @@ z.B. (nicht zum empfehlen)
 ```
 index.md ⇒ index
 ```
+
+### Für Developer
+
+Um den **title** Tag zu nutzen muss in der mkdocs.yml Datei
+```
+markdown_extensions:
+  - meta
+```
+aktiviert sein .
+
 ### Verstecken von .md Dateien
-Mkdocs zeigt automatisiert jede Datei an (Links im Navigationsmenü), die eine Markdown-Datei ist. Das passiert auch, wenn man diese in einen extra Ordner plaziert (Dann wird der Ordner angezeigt mit der md-Datei.
+Mkdocs zeigt automatisiert jede Datei an (Links im Navigationsmenü), die eine Markdown-Datei ist. Das passiert auch, wenn man diese in einen extra Ordner plaziert (Dann wird der Ordner angezeigt mit der md-Datei).
 Falls es nun Markdown Dateien gibt, die man nur in andere md-Dateien importieren will, aber nicht extra im Menü angezeigt werden soll, benutzt man dafür den versteckten Ordner **.imports** in dem Ordner **/docs**, 
 dieser Ordner ist in diesem Fall wie folgt aufgebaut:
 ```
@@ -374,24 +369,16 @@ connecttools  extensions  rfscout  rfsuite  rfyams.
 ``` 
 Deutlich zu sehen, dass es genau dieselbe Namen sind, wie in dem **/docs** Ordner die einzelne Ordner heißen. Das heißt, dass es im import genauso aufgebaut ist!
 Beispiel: 
-rfscout -> 20.13.19 / 20.13.20 / 20.13.21 -> de /en/sp -> md Dateien (die nur importiert werden sollen, in andere MD Dateien).
+rfscout -> 20.13.19 / 20.13.20 / 20.13.21 -> de/en/sp -> .md Dateien (die nur importiert werden sollen, in andere MD Dateien).
 
 Dort kann man nun md-Dateien speichern, die nicht direkt angezeigt werden sollen, sondern in eine andere MD-Datei importiert werden soll.
-Importieren der Datei durch Ohne "" an Anfang: 
+Importieren der Datei durch (Ohne "" an Anfang): 
 
 "--8<-- "docs/rfscout/20.13.21/de/processanalysis/activitydiagram.md"  "
  
 Falls in dem **/docs** Ordner ein neuer Ordner dazukommen sollte, demensprechend hier den Ordnernamen ebenfalls ergänzen.
-**Achtung:** Damit dies Plattformübergreifend funktioniert, bitte keine Sonderzeichen in den Ordner hinzufügen
+**Achtung:** Damit dies Plattformübergreifend funktioniert, bitte keine Sonderzeichen in den Ordnernamen hinzufügen
 
-### Für Developer
-
-Um den **title** Tag zu nutzen  muss in der mkdocs.yml Datei
-```
-markdown_extensions:
-  - meta
-```
-aktiviert sein .
 
 ## Sortierung des Navigationsmenüs (links)
 Um das linke Menü richtig zu sortieren, wird der automatische Sortieralgorithmus von Mkdocs genutzt, dieser hat folgenende Aufbau: 
@@ -405,10 +392,10 @@ Zu allererst wird die index.md Datei gezeigt (mit kleinem i) und dann geht es mi
 
 Sollte man eine neues Sprache hinzufügen wollen, muss erst mit dem Admin gesprochen werden, damit dieser ein paar Voreinstellungen tätigen kann.
 Der generelle Aufbau ist aber:
-In jedem Ordner: z.b. /docs/RF::SCOUT, unter jeder Version darin, wird zwischen den Sprachen getrennt, d.h. jeder bekommt einen extra Ordner.
+In jedem Ordner: z.b. /docs/RFSCOUT, unter jeder Version darin, wird zwischen den Sprachen getrennt, d.h. jeder bekommt einen extra Ordner.
 Das kann dann z.b. so aussehen:
 ```
-$/docs/Rf::SCOUT/20.13.21/de
+$/docs/RfSCOUT/20.13.21/de
 ```
 In diesem Ordern sind dann die ganzem .md Dateien die auf Deutsch sind.
 Nun kann ein Ordern hinzugefügt werden, wie z.b. **en** dort kommen dann z.b. Englische .md Dateien rein.
@@ -495,7 +482,7 @@ Jedes einzelne Programm benötigt seine eigene Versionen.
 Dazu werden mehrere Dinge benötigt.
 1. In jedem Ordner des einzelnen Programms benötigt es eine Datei namens **versions.txt**
 ```
-$/docs/RF::SCOUT/versions.txt
+$/docs/RFSCOUT/versions.txt
 ```
 2. Dort werde dann in Reihenfolge die Versionen aufgeschrieben, die neuste Version nach oben.
 Beispiel:
@@ -504,24 +491,24 @@ Beispiel:
 20.13.20
 20.13.19
 ```
-3. Die Ordner in dem Programm Ordner müssen genau gleich benannt werden wie die Versionen in der versions.txt.
+3. Die Ordner in dem Themen Ordner müssen genau gleich benannt werden wie die Versionen in der versions.txt.
 Beispiel:
 ```
 20.13.19  20.13.20  20.13.21  versions.txt
 ```
 wie oben schon besprochen befinden sich dort dann jeweils die Ordner mit den verschiedenen Sprachen darin und dort die verschiedenen Markdown-Dateien.
 ```
-$cd /docs/RF::SCOUT/20.13.21
+$cd /docs/RFSCOUT/20.13.21
 $ls
 de en sp
 $ cd de
 $ ls 
-(alle MD Dateien die für die Deutsche Sprache relevant sind)
+index.md (alle MD Dateien die für die Deutsche Sprache relevant sind)
 ```
 ## Suche
 Die Suche wird folgendermaßen eingeschränkt: </br> 
-Es wird nur im aktuellen Thema (RF::SCOUT usw), in der aktuellen Version und in der aktuellen Sprache gesucht.
-Die Funktion **changeSearchResult()** in **/docs/extra.js** schränkt dich Suche ein und es wurde ein Eventlistener aktiviert, der 
+Es wird nur im aktuellen Thema (RFSCOUT usw), in der aktuellen Version und in der aktuellen Sprache gesucht.
+Die Funktion **changeSearchResult()** in **/docs/extra.js** schränkt die Suche ein und es wurde ein Eventlistener aktiviert, der 
 nach jeder Eingabe reagiert und in die Funktion **changeSearchResult()** reinspringt:
 ```js
 document.getElementById('searchInput').addEventListener('input',changeSearchResult);

@@ -58,9 +58,9 @@ Der Inhalt der Tabelle wird durch Auswahl des "Workload Diagram" Buttons sowie d
 
 --8<-- "docs/.imports/rfscout/20.13.19/en/buttons/button_workloaddiagram.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/de/feld/feld_suche.md"
+--8<-- "docs/.imports/rfscout/20.13.19/en/feld/feld_suche.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/de/feld/feld_groupby.md"
+--8<-- "docs/.imports/rfscout/20.13.19/en/feld/feld_groupby.md"
 
 ## Zeitskala
 <!-- Die Zeitskala zeigt die aufgezeichneten Taktzeiten der einzelnen Tabelleneinträge. -->
@@ -121,4 +121,3 @@ Zudem sind diese und weitere Einstellungen über das Setting Icon :fontawesome-s
 Befindet sich der Mauszeiger über dem Chartbereich inklusive Skala und wird das Mausrad mit gleichzeitiger gedrückter ++Shift++ Taste gedreht, wird hineingezoomt bzw. herausgezoomt. Wird die Maus mit gedrückter primärer Maustaste und gleichzeitig gedrückter ++Shift++ Taste bewegt, wird die Zeitskala verschoben. Ein verschieben ist nur möglich, wenn vorher hineingezoomt wurde.
 
 Wird das Mausrad mit gleichzeitiger gedrückter ++Strg++ Taste gedreht, wird die Anwendung vom Browser vergrößert bzw. verkleinert.
-

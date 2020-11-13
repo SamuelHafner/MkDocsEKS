@@ -56,11 +56,11 @@ Der Inhalt der Tabelle wird durch Auswahl des "Workload Diagram" Buttons sowie d
 
 ![RFScout Process Analysis Anzeigebereiche 2](Bilder/RF_SCOUT_process_analysis_tabellen_felder.png)
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/buttons/button_workloaddiagram.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/buttons/button_workloaddiagram.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/feld/feld_suche.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/feld/feld_suche.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/feld/feld_groupby.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/feld/feld_groupby.md"
 
 ## Zeitskala
 <!-- Die Zeitskala zeigt die aufgezeichneten Taktzeiten der einzelnen Tabelleneinträge. -->
@@ -86,7 +86,7 @@ Die Auswahl des Moduls ["∅ Cycle Timing"](#taktzeit-diagramm) wirkt sich insof
 <!-- TODO: Bild anpassen -->
 ![RFScout Process Analysis Anzeigebereiche 2](Bilder/RF_SCOUT_process_analysis_zeitskala_felder.png)
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/feld/feld_analysistimerange.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/feld/feld_analysistimerange.md"
 
 
 
@@ -100,21 +100,21 @@ Zudem sind diese und weitere Einstellungen über das Setting Icon :fontawesome-s
 
 ![Icon_Setting](Bilder/RF_Scout_Icon_cog.png "Setting Icon")
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/displayopt/display_option_hiden_cross_over_tasks.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/displayopt/display_option_hiden_cross_over_tasks.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/displayopt/display_option_show_heartbeat_timestamps.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/displayopt/display_option_show_heartbeat_timestamps.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/displayopt/display_option_show_cycle_lengths.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/displayopt/display_option_show_cycle_lengths.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/displayopt/display_option_show_compact.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/displayopt/display_option_show_compact.md"
 
 ### Buttons
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/processanalysis/activitydiagram.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/processanalysis/activitydiagram.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/processanalysis/parttracking.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/processanalysis/parttracking.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/sp/processanalysis/avgCycleTiming.md"
+--8<-- "docs/.imports/rfscout/20.13.21/sp/processanalysis/avgCycleTiming.md"
 
 ### Maus
 

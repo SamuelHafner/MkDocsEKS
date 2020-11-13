@@ -56,11 +56,11 @@ Der Inhalt der Tabelle wird durch Auswahl des "Workload Diagram" Buttons sowie d
 
 ![RFScout Process Analysis Anzeigebereiche 2](Bilder/RF_SCOUT_process_analysis_tabellen_felder.png)
 
---8<-- "docs/.imports/rfscout/20.13.19/en/buttons/button_workloaddiagram.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/buttons/button_workloaddiagram.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/de/feld/feld_suche.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/feld/feld_suche.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/de/feld/feld_groupby.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/feld/feld_groupby.md"
 
 ## Zeitskala
 <!-- Die Zeitskala zeigt die aufgezeichneten Taktzeiten der einzelnen Tabelleneinträge. -->
@@ -86,7 +86,7 @@ Die Auswahl des Moduls ["∅ Cycle Timing"](#taktzeit-diagramm) wirkt sich insof
 <!-- TODO: Bild anpassen -->
 ![RFScout Process Analysis Anzeigebereiche 2](Bilder/RF_SCOUT_process_analysis_zeitskala_felder.png)
 
---8<-- "docs/.imports/rfscout/20.13.19/en/feld/feld_analysistimerange.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/feld/feld_analysistimerange.md"
 
 
 
@@ -100,25 +100,24 @@ Zudem sind diese und weitere Einstellungen über das Setting Icon :fontawesome-s
 
 ![Icon_Setting](Bilder/RF_Scout_Icon_cog.png "Setting Icon")
 
---8<-- "docs/.imports/rfscout/20.13.19/en/displayopt/display_option_hiden_cross_over_tasks.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/displayopt/display_option_hiden_cross_over_tasks.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/en/displayopt/display_option_show_heartbeat_timestamps.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/displayopt/display_option_show_heartbeat_timestamps.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/en/displayopt/display_option_show_cycle_lengths.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/displayopt/display_option_show_cycle_lengths.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/en/displayopt/display_option_show_compact.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/displayopt/display_option_show_compact.md"
 
 ### Buttons
 
---8<-- "docs/.imports/rfscout/20.13.19/en/processanalysis/activitydiagram.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/processanalysis/activitydiagram.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/en/processanalysis/parttracking.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/processanalysis/parttracking.md"
 
---8<-- "docs/.imports/rfscout/20.13.19/en/processanalysis/avgCycleTiming.md"
+--8<-- "docs/.imports/rfscout/20.13.20/en/processanalysis/avgCycleTiming.md"
 
 ### Maus
 
 Befindet sich der Mauszeiger über dem Chartbereich inklusive Skala und wird das Mausrad mit gleichzeitiger gedrückter ++Shift++ Taste gedreht, wird hineingezoomt bzw. herausgezoomt. Wird die Maus mit gedrückter primärer Maustaste und gleichzeitig gedrückter ++Shift++ Taste bewegt, wird die Zeitskala verschoben. Ein verschieben ist nur möglich, wenn vorher hineingezoomt wurde.
 
 Wird das Mausrad mit gleichzeitiger gedrückter ++Strg++ Taste gedreht, wird die Anwendung vom Browser vergrößert bzw. verkleinert.
-

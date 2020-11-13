@@ -4,14 +4,14 @@ Das Suchfeld bezieht sich auf die Elemente einer angezeigten Tabelle. Generell s
 
 ![RFScout Programmbereiche](Bilder/RF_SCOUT_suchfeld.png)
 
-Sobald eine Eingabe getätigt wurde erscheint, im Suchfeld das Remove Icon :fontawesome-solid-times-circle:. Wird das Icon gedrückt, wird der eingegebene Suchbegriff gelöscht. Siehe hierzu auch [:fontawesome-solid-times-circle: Icon](/scout/appendix/icon.html#remove).
+Sobald eine Eingabe getätigt wurde erscheint, im Suchfeld das Remove Icon :fontawesome-solid-times-circle:. Wird das Icon gedrückt, wird der eingegebene Suchbegriff gelöscht. Siehe hierzu auch [:fontawesome-solid-times-circle: Icon](/RFSCOUT/20.13.21/de/appendix/icon.html#remove).
 
 ![Icon_remove_Suchfeld](Bilder/RF_Scout_Icon_remove_Suchfeld.png
  "Remove Sucheintrag")
 
 Das Suchfeld ist so konzipiert, dass eine Suche erst von der Anwendung gestartet wird wenn 2 Sekunden keine Aktion im Suchfeld selbst getätigt wurde. Man kann die Suche aber auch selbst auslösen, indem man "Return" drückt. Im Suchergebnis werden Ttreffer mit gelber Hintergrundfarbe angezeigt. Elternelemente werden auch angezeigt, wenn der Suchbegriff nicht in deren Bezeichner enthalten ist.
 
-Ist das Icon :fontawesome-solid-eye: aktiv, werden alle gefundenen Elemente mit deren Elternelemente bzw. Group-by-Elementen angezeigt. Ist das Icon :fontawesome-solid-eye-slash: aktiv, sind die Elternelemente ausgeblendet, die den Suchbegriff nicht beinhalten. Siehe hierzu auch [:fontawesome-solid-eye: :fontawesome-solid-eye-slash: Icon](/scout/appendix/icon.html#eye-und-eye-slash).
+Ist das Icon :fontawesome-solid-eye: aktiv, werden alle gefundenen Elemente mit deren Elternelemente bzw. Group-by-Elementen angezeigt. Ist das Icon :fontawesome-solid-eye-slash: aktiv, sind die Elternelemente ausgeblendet, die den Suchbegriff nicht beinhalten. Siehe hierzu auch [:fontawesome-solid-eye: :fontawesome-solid-eye-slash: Icon](/RFSCOUT/20.13.21/de/appendix/icon.html#eye-und-eye-slash).
 
 ![Icon_Suchfeld_eye_1](Bilder/RF_Scout_Icon_Eye_Suchfeld_1.png) ![Icon_Suchfeld_eye_2](Bilder/RF_Scout_Icon_Eye_Suchfeld_2.png)
 

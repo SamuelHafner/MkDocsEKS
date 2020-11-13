@@ -11,10 +11,10 @@ Z.B. Group by "Function unit"
 
 ![RFScout Programmbereiche](Bilder/RF_SCOUT_process_analysis_anzeigebreich_tabelle_groupby_functionunit.png)
 
-Es erscheinen in der ersten Tabellenspalte das Icon :fontawesome-solid-caret-right: bzw. :fontawesome-solid-caret-down:. Mit diesen Icons können einzelne Gruppierungen ein- und aufgeklappt werden. Siehe hierzu auch die [:fontawesome-solid-caret-right::fontawesome-solid-caret-down: Icons](/scout/appendix/icon.html#caret-right-und-caret-down).
+Es erscheinen in der ersten Tabellenspalte das Icon :fontawesome-solid-caret-right: bzw. :fontawesome-solid-caret-down:. Mit diesen Icons können einzelne Gruppierungen ein- und aufgeklappt werden. Siehe hierzu auch die [:fontawesome-solid-caret-right::fontawesome-solid-caret-down: Icons](/RFSCOUT/20.13.21/en/appendix/icon.html#caret-right-und-caret-down).
 
 In der Kopfzeile erscheinen zudem die Buttons
 ![einklappen_primary](Bilder/einklappen_primary.fa02e0a4.svg){: style="width:1em"}
 und
-![ausklappen_primary](Bilder/ausklappen_primary.beziehungsweise aufgeklappt.
-Siehe hierzu auch die [Liste Einklappen und Ausklappen](/scout/appendix/icon.html#liste-einklappen-und-ausklappen).
+![ausklappen_primary](Bilder/ausklappen_primary.09cf35c7.svg){: style="width:1em"} beziehungsweise aufgeklappt.
+Siehe hierzu auch die [Liste Einklappen und Ausklappen](/RFSCOUT/20.13.21/en/appendix/icon.html#liste-einklappen-und-ausklappen).

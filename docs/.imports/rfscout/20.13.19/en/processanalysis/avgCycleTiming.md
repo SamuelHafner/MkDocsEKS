@@ -1,5 +1,5 @@
 
---8<-- "docs/scout/20.13.21/.buttons/button_cycletiming.md"
+--8<-- "docs/.imports/rfscout/20.13.19/en/buttons/button_cycletiming.md"
 
 In der Average Cycle Ansicht werden die durchschnittliche Taktzeit sowie die durchschnittliche relative Lage der Aktivitäten aller gefilterten Elemente zum Takt angezeigt. [^avgCycleTiming_1]
 [^avgCycleTiming_1]: **Hinweis zur Berechnung:** Zu jedem Takt wird die relative Lage einer Aktivität ermittelt, d.h., die Lage und Daier einer Aktivität wird auf die jeweilige Taktdauer normiert.
