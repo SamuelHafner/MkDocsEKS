@@ -223,7 +223,7 @@ if(pathArray[2] === versions[i].trim()){
   btn.style.display = "block";
 } //if
 else{
-div.innerHTML += '<button onClick= "dropdownBtn(\''+versions[i]+'\')">'+versions[i]+'</button>'
+div.innerHTML += '<button onClick= "dropdownBtn(\''+versions[i].trim()+'\')">'+versions[i]+'</button>'
 } //else
 } //if
 } // for
@@ -366,7 +366,7 @@ window.onclick = function(event) {
 /* Click on DropdownButton */
 function dropdownBtn(version){
   let pathArray = window.location.pathname.split('/');
-  window.location.href = "/"+pathArray[1]+"/"+version+"/"+pathArray[3]+"/index.html";
+  window.location.href = "/"+pathArray[1]+"/"+version.trim()+"/"+pathArray[3]+"/index.html";
   }
 
 /*Change Language */
