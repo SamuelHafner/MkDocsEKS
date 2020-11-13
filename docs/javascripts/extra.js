@@ -155,7 +155,7 @@ function initTabDropDownMenu (){
   let as = ul.getElementsByTagName('a');
 
   for(let i = 0; i<as.length; i++){
-    as[i].href = "http://192.168.41.129:8000/RFSUITE/20.1.08/de/index.html";
+    as[i].href = "http://127.0.0.1:8000/RFSUITE/20.1.08/de/index.html";
   }
   let tabDropdownItem = document.getElementById('ConnectToolsBtn');
   tabDropdownItem.addEventListener("mouseover", function(){
@@ -300,6 +300,7 @@ liNav[k].style.display = "block";
 } //for
 } // function Ende
 
+// Set Navbar Title
 function setTitle(res){
   let titleLabel = res[0].getElementsByTagName('label');
 
@@ -371,35 +372,45 @@ function dropdownBtn(version){
 /*Change Language */
 function clickLangBtn(lan){
 let pathArray = window.location.pathname.split('/');
+let url = "";
 
 switch(lan){
   case "en":
 	setCookie("language","en",true);
 	if(pathArray.length <= 3){
-	window.location.href = "/en/index.html";
+  window.location.href = "/en/index.html";
+  return;
 	}
-	else{
-        window.location.href = "/"+pathArray[1]+ "/"+pathArray[2]+"/en/"+pathArray[4];
+	else{        
+        pathArray[3] = "en";
 	}
  	break;
   case "de":
         setCookie("language","de",true);
   if(pathArray.length <= 3){
         window.location.href = "/de/index.html";
+        return;
 	}else{
-       window.location.href = "/"+pathArray[1]+ "/"+pathArray[2]+"/de/"+pathArray[4];
+    pathArray[3] = "de";
 	}
 	 break;
   case "sp":
         setCookie("language","sp",true);
 	if(pathArray.length <=3){
-	      window.location.href =  "/sp/index.html";
+        window.location.href =  "/sp/index.html";
+        return;
 	}else{
-	      window.location.href = "/"+pathArray[1]+"/"+pathArray[2]+"/sp/"+pathArray[4];
+    pathArray[3] = "sp";
         }
   break;
 }
+
+for(let i = 1; i<pathArray.length; i++){
+   url = url +  "/" + pathArray[i];
 }
+
+window.location.href = url;
+} // Funtion Ende
 
 
 

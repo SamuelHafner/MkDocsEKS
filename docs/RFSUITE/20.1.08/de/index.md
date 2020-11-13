@@ -104,7 +104,7 @@ unter Windows
 ```bash
 python -m mkdocs serve 
 ```
-wird ein Liveserver gestartet, der standardmäßig unter **127.0.0.1:8000** läuft, damit kann getestet werden wie es im Browser aussieht.
+wird ein Liveserver gestartet, der standardmäßig unter **127.0.0.1:8000** läuft.
 
 ##### Mkdocs in der VM
 Falls der Server in einer VM läuft, es aber im Browser unter Windows angezeigt werden soll, folgenden Befehl eingeben: 
