@@ -515,7 +515,7 @@ document.getElementById('searchInput').addEventListener('input',changeSearchResu
 ``` 
 
 ## Offline Nutzung
-Möchte man für die Offlineversion nur ein bestimmes Thema, eine bestimmte Version und eine bestimmte Sprache dem Programm oder eine Nutzer mitgeben, dann
+Möchte man für die Offlineversion nur ein bestimmes Thema, eine bestimmte Version dem Programm oder eine Nutzer mitgeben, dann
 geht man wie folgt vor: 
 
 1. Ausführen von mkdocs build, dadurch wird der Ordner **/site** gebaut mit allen nötigen HTML Seiten darin.
@@ -527,12 +527,13 @@ assests, javascripts,search,stylesheets, 404.html, sitemap.xml, sitemap.xml.gz
 4. Nun die Restlichen Ordner löschen, **bis** auf den Ordner dessen Thema man möchte.
 z.b. RFSCOUT 
 5. In dem ausgesuchten Ordner alle Versionen löschen, die **nicht** benötigt werden und auch die versions.txt
-6. In der ausgesuchten Version die Sprachen löschen, die **nicht** benötigt werden.
 Allgemeines Beispiel: 
 ```
-RFSCOUT -> 20.13.21 -> de 
+RFSCOUT -> 20.13.21 -> de en sp
 ```
-7. Im ausgesuchtem Sprachordner die  **index.html** als erstes ausführen. 
+6. Im ausgesuchtem Sprachordner die  **index.html** als erstes ausführen. 
+
+
 
 
 ## Tipps und Tricks
