@@ -2,7 +2,7 @@
 title: Einleitung
 ---
 
-Deutsche Version 20.13.21
+Deutsche Version 
 
 !!! info "RF::SCOUT Dokumentationsversion"
     {{rf_scout.version}}

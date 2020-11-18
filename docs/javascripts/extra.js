@@ -88,6 +88,19 @@ let pathArray = window.location.pathname.split('/');
 
 changeLanguageContent(currentLan);
 
+document.getElementById('de').addEventListener("click",function(){
+  clickLangBtn("de");
+  },false);
+  
+  document.getElementById('en').addEventListener("click",function(){
+  clickLangBtn("en");
+  },false);
+  
+  document.getElementById('sp').addEventListener("click",function(){
+  clickLangBtn("sp");
+  },false);
+ 
+
 
 let url = window.location.href.split('/');
 //--- Check if Offline
@@ -105,6 +118,9 @@ else{
     window.location.href = "/"+currentLan+"/index.html";
     }
        
+    let logo = document.getElementById('logo').addEventListener ("click",function(){
+      window.location.href="/"+currentLan+"/index.html";
+      },false);
     
     let navTab = document.getElementById('navTab');
     navTab.style.display = "block";
@@ -121,27 +137,8 @@ else{
     initTabDropDownMenu();
 
 
-    let langbtns = document.getElementsByClassName('lan_icon');
-    
 
-    for(let k = 0; k < langbtns.length; k++ ){
-      langbtns[k].style.display = "block";
-    }
-
-  document.getElementById('de').addEventListener("click",function(){
-    clickLangBtn("de");
-    },false);
-    
-    document.getElementById('en').addEventListener("click",function(){
-    clickLangBtn("en");
-    },false);
-    
-    document.getElementById('sp').addEventListener("click",function(){
-    clickLangBtn("sp");
-    },false);
-    let logo = document.getElementById('logo').addEventListener ("click",function(){
-      window.location.href="/"+currentLan+"/index.html";
-      },false);
+ 
   // [1] = dir [2] = Version [3] = lang [4] = html datei
 //Wenn Startseite, dann keine versions.txt auslesen
 if(pathArray.length > 3){
@@ -400,8 +397,13 @@ function dropdownBtn(version){
 
 /*Change Language */
 function clickLangBtn(lan){
+  let language = ['de','en','sp','ch'];
+
 let pathArray = window.location.pathname.split('/');
 let url = "";
+
+let lanIndex = getLanIndex(pathArray,language);
+
 
 switch(lan){
   case "en":
@@ -411,7 +413,7 @@ switch(lan){
   return;
 	}
 	else{        
-        pathArray[3] = "en";
+        pathArray[lanIndex] = "en";
 	}
  	break;
   case "de":
@@ -420,7 +422,7 @@ switch(lan){
         window.location.href = "/de/index.html";
         return;
 	}else{
-    pathArray[3] = "de";
+    pathArray[lanIndex] = "de";
 	}
 	 break;
   case "sp":
@@ -429,7 +431,7 @@ switch(lan){
         window.location.href =  "/sp/index.html";
         return;
 	}else{
-    pathArray[3] = "sp";
+    pathArray[lanIndex] = "sp";
         }
   break;
 }

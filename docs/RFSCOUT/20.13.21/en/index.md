@@ -2,7 +2,7 @@
 title: Einleitung
 ---
 
-Deutsche Version
+Englische Version
 
 !!! info "RF::SCOUT Dokumentationsversion"
     {{rf_scout.version}}
