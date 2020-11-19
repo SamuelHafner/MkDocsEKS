@@ -86,7 +86,6 @@ currentLan = getCookie("language");
 let pathArray = window.location.pathname.split('/');
 
 
-changeLanguageContent(currentLan);
 
 document.getElementById('de').addEventListener("click",function(){
   clickLangBtn("de");
@@ -113,10 +112,19 @@ if(url[0].trim() !== "http:" &&  url[0].trim() !== "https:"){
 }
 // ONLINE
 else{
+try{
 
+
+}catch(e){
+
+}
+  // Start wenn man  Seite öffnet
   if(pathArray.length <= 2){
     window.location.href = "/"+currentLan+"/index.html";
     }
+
+    changeLanguageContent(currentLan);
+
        
     let logo = document.getElementById('logo').addEventListener ("click",function(){
       window.location.href="/"+currentLan+"/index.html";
@@ -155,6 +163,11 @@ hideNoneUsedNav(pathArray,language);
 document.getElementById('searchInput').addEventListener('input',function(){changeSearchResult(language)});
 
 }); // Function end
+
+// Links des MainButtons auf der Startseite
+function mainButtonClicked(currentLan){
+  window.location.href = "/RFSCOUT/20.13.21/"+currentLan+"/index.html";
+}
 
 function getLanIndex(pathArray ,language){
   let lanIndex;
@@ -220,19 +233,60 @@ setTimeout(function(){
 
 function changeLanguageContent(currentLan){
 
-let search = document.getElementById('searchInput');
+  let mainHeader;
+  let mainText;
+  let mainBtn;
+  let search;
+  let pathArray = window.location.pathname.split('/');
+  
+   search = document.getElementById('searchInput');
+
+  // MainPage 
+  if(pathArray.length <=3){    
+    mainBtn = document.getElementById('mainButton');
+    mainHeader = document.getElementById('mainHeader');
+    mainText = document.getElementById('mainText');  
+  }
+
+
 
 switch (currentLan){
 	case "en":
-		search.placeholder = 'Search';
+    if(pathArray.length <=3){
+    mainHeader.innerHTML = 'User Guide';
+    mainText.innerHTML = 'User manual of the tool RF :: SCOUT, a tool of the RF :: Suite.';
+    mainBtn.innerHTML = 'Get Started';
+    }
+    search.placeholder = 'Search';
+    
 		break;
 	case "de":
+    if(pathArray.length <=3){
+    mainHeader.innerHTML = 'Benutzerhandbuch';
+    mainText.innerHTML = 'Benutzerhandbuch der des Tools RF::SCOUT, ein Tool der RF::Suite.';
+    mainBtn.innerHTML = 'Jetzt loslegen';
+
+    }
 		search.placeholder = 'Suche';
 		break;
 	case "sp":
-		search.placeholder = 'Búsqueda';
+    if(pathArray.length <=3){
+    mainHeader.innerHTML = 'Guía del usuario';
+    mainText.innerHTML = 'Manual de usuario de la herramienta RF :: SCOUT, una herramienta de RF :: Suite.';
+    mainBtn.innerHTML = 'empieza ahora';
+
+    }
+    search.placeholder = 'Búsqueda';
 		break;
 }
+
+if(pathArray.length <=3){
+mainBtn.addEventListener('click',function(){
+  mainButtonClicked(currentLan);
+});
+}
+
+
 }
 
 /* Build Version Button  */

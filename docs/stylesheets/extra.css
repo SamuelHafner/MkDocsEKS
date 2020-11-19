@@ -1,53 +1,72 @@
-.md-header {
-background-color: #00559f;
-}
-
-
-
- 
-.md-header-nav__button.md-logo img, .md-header-nav__button.md-logo svg {
-    display: block;
-    width: 6.2rem;
-    height: 1.2rem;
-    fill: currentColor;
-}
-
-/*  Icons müssen eine maximale Breite und Höhe von px2em(18px) haben da die Icons als TTF interpretiert werden
-    @todo chance 1em to px2em(18px) */
-.md-typeset span.twemoji svg {
-    max-width: 1em;
-    max-height: 1em;
-    fill: currentColor;
-}
-
-
-img {
-    border: 5px solid #00559f;
-    border: 5px solid hsla(207deg, 90%, 54%, 1);
-    border-radius: 2px;
-    padding: 5px;
-    margin-right: 5px;
-}
-
-/* Image magnifier glass START*/
-
-* {box-sizing: border-box;}
-
-.img-magnifier-container {
-  position: relative;
-}
-
-.img-magnifier-glass {
-  position: absolute;
-  border: 3px solid #00559f;
-  border-radius: 5px;
-  cursor: none;
-  /*Set the size of the magnifier glass: */
-  width: 300px;
-  height: 100px;
-}
-
-/* Image magnifier glass ENDE*/
+.md-header, .md-tabs {
+  background-color: #00559f;
+  }
+  
+  .md-header-nav__button.md-logo img, .md-header-nav__button.md-logo svg {
+      display: block;
+      width: 6.2rem;
+      height: 1.2rem;
+      fill: currentColor;
+  }
+  
+  /*  Icons müssen eine maximale Breite und Höhe von px2em(18px) haben da die Icons als TTF interpretiert werden
+      TODTO chance 1em to px2em(18px) */
+  .md-typeset span.twemoji svg {
+      max-width: 1em;
+      max-height: 1em;
+      fill: currentColor;
+  }
+  
+  /* Standard Formatierung von Bildern und Screenshots. */
+  img {
+      border: 5px solid #00559f;
+      border: 5px solid hsla(207deg, 90%, 54%, 1);
+      border-radius: 2px;
+      padding: 5px;
+      margin-right: 5px;
+  }
+  
+  /* Einige Grafiken werden als Icon verwendet mit dieser Class werde sie auf max. 25px reduziert. Die Class wird außerhalb eines Textes verwendet. */
+  .img_button {
+    height: 25px !important;
+    border: 0px;
+    border-radius: 0px;
+    padding: 0px;
+    margin-right: 0px;
+  }
+  /* Einige Grafiken werden als Icon verwendet mit dieser Class werde sie auf max. 1em reduziert. Die Class wird innerhalb eines Textes verwendet. */
+  .img_button_text {
+    height: 1em !important;
+    border: 0px;
+    border-radius: 0px;
+    padding: 0px;
+    margin-right: 0px;
+  }
+  
+  /* Einige Grafiken werden nebeneinander verwendet und sollten die gleiche höhe haben. */
+  .max_height_200px {
+    max-height: 200px !important;
+    height: 200px !important;
+  }
+  
+  /* Test classen für eine Lupe innerhalb einer Grafik. Hierzu gibt es noch javascript siehe extra.js
+  /* Image magnifier glass START*/
+    * {box-sizing: border-box;}
+  
+    .img-magnifier-container {
+      position: relative;
+    }
+  
+    .img-magnifier-glass {
+      position: absolute;
+      border: 3px solid #00559f;
+      border-radius: 5px;
+      cursor: none;
+      /*Set the size of the magnifier glass: */
+      width: 300px;
+      height: 100px;
+    }
+  /* Image magnifier glass ENDE*/
 
 #indexButton{
  margin: 5px; 
