@@ -421,10 +421,11 @@ Falls in dem **/docs** Ordner ein neuer Ordner dazukommen sollte, demensprechend
 
 ## Sortierung des Navigationsmenüs (links)
 Um das linke Menü richtig zu sortieren, wird der automatische Sortieralgorithmus von Mkdocs genutzt, dieser hat folgenende Aufbau: 
-Der Sortieralgorithmus ist Case-sensitiv, als erstes werden die Dateien beachtet, die mit einem kleinen Buchstaben anfangen und dann die, die mit einen großen Buchstaben Anfangen. D.h. **A** kommt nach **z**
+Der Sortieralgorithmus ist Case-sensitiv, als erstes werden die Dateien beachtet, die mit einem großen Buchstaben anfangen und dann die, die mit einen kleinen Buchstaben Anfangen. D.h. **a** kommt nach **Z**
 Es werden erst alle Dateien beachtet und danach die Ordner, die weitere .md Dateien beinhalten
 
-Zu allererst wird die index.md Datei gezeigt (mit kleinem i) und dann geht es mit weiter mit a-z, A-Z.
+Zu allererst wird die index.md Datei gezeigt (mit kleinem i) und dann geht es mit weiter mit A-Z, a-z.
+Nummerierungen werden nach der index.md als aller erstes beachtet.
 
 
 ## Sprache hinzufügen
