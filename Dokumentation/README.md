@@ -127,9 +127,11 @@ Dort werden alle Dateien von **/docs** in **.html** Dateien gebaut und diese kan
 #### mkdocs.yml
 Dort werden jegleiche Regeln/Plugins usw. definiert, die benötigt werden. 
 
-#### overrides
+#### /overrides
 Im Ordner overrides befinden sich die HTML - Seiten die überschrieben werden können. 
 Mkdocs - Material besitzt standardisierte HTML - Seiten, diese können hier überschrieben bzw, geändert werden. Mehr dazu unter: [MkDocs Customization](https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme)
+
+
 
 #### Detailierter Aufbau von /docs
 In /docs sind jeweils die Ordner angezeigt, die als Oberes Thema gelten z.B. RF::SCOUT usw.
@@ -158,6 +160,43 @@ $ls
 index.md  + Jegliche .md Dateien 
 ```
 **Es werden nur .md Dateien angezeigt und gebaut, das heißt in den Ordnern können jegliche andere Dateien und Ordnern erstellen werden. Z.B: Bilder usw.**
+
+## Startseite erstellen
+Das Tempalte für die Startseite ist in **overrides/home.html**
+1. In **/docs/en && sp && de/index.md** home.html als template einfügen:
+```
+template: home.html
+```
+2. In **/docs/javascripts/extra.js** in der Funktion changeLanugageContent, jeweils die einzelnen Elemente für die Sprache anpassen:
+z.b. de
+```js
+ mainBtn = document.getElementById('mainButton');
+    mainHeader = document.getElementById('mainHeader');
+    mainText = document.getElementById('mainText');
+	case "de":
+    if(pathArray.length <=3){
+    mainHeader.innerHTML = 'Benutzerhandbuch';
+    mainText.innerHTML = 'Benutzerhandbuch der des Tools RF::SCOUT, ein Tool der RF::Suite.';
+    mainBtn.innerHTML = 'Jetzt loslegen';
+
+    }
+		search.placeholder = 'Suche';
+		break;
+```
+3. Button verlinken
+```js
+if(pathArray.length <=3){
+  mainBtn.addEventListener('click',function(){
+  mainButtonClicked(currentLan);
+});
+}
+``` 
+dann in der Funktion **mainButtonClicked()** den Link erstellen, wohin der Button weiterverlinken soll:
+```js
+function mainButtonClicked(currentLan){
+  window.location.href = "/RFSCOUT/20.13.21/"+currentLan+"/index.html";
+}
+```
 
 ## Oberes Menü erstellen
 
@@ -395,7 +434,7 @@ Der generelle Aufbau ist aber:
 In jedem Ordner: z.b. /docs/RFSCOUT, unter jeder Version darin, wird zwischen den Sprachen getrennt, d.h. jeder bekommt einen extra Ordner.
 Das kann dann z.b. so aussehen:
 ```
-$/docs/RfSCOUT/20.13.21/de
+$/docs/RFSCOUT/20.13.21/de
 ```
 In diesem Ordern sind dann die ganzem .md Dateien die auf Deutsch sind.
 Nun kann ein Ordern hinzugefügt werden, wie z.b. **en** dort kommen dann z.b. Englische .md Dateien rein.
