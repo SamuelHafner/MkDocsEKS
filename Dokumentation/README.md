@@ -368,7 +368,7 @@ style="color: #ffffff"
 
 ## Bennenen der Seiten und des Navigationsmenüs (links).
 
-Um die Seiten und **dadruch** das Menü links richtig zu benennen, gibt es verschiedene Möglichkeiten:
+Um die Seiten und **dadurch** das Menü links richtig zu benennen, gibt es verschiedene Möglichkeiten:
 
 1. Die beste Möglichkeit ist es, jeder .md Datei einen Titel zu geben. Dies funktioniert mit sogenannten Meta Tags am Anfang einer .md Datei und es funktioniert **IMMER**:
 ```
@@ -583,4 +583,12 @@ Möchte man dennoch so wie [`hier`](#anzeigen-des-menus) Jinja im Codeblock anze
 Mehr dazu [**hier**](https://github.com/mkdocs/mkdocs/issues/1133)
 
 
+### Einbetten von Videos
+
+Um Videos einzubetten geht man wie folgt vor: 
+1. Die Video Datei unter **/docs/videos** abspeichern (**Bitte nur mp4-Format**)
+2. Den [HTML-Video Tag] (https://wiki.selfhtml.org/wiki/HTML/Multimedia_und_Grafiken/video) in der .md-Datei nutzen und dort gewünschte Optionen einstellen
+```html
+<video src="/videos/testVideo.mp4" controls > </video>
+```
 
