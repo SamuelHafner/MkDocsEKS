@@ -595,3 +595,5 @@ Um Videos einzubetten geht man wie folgt vor:
 ```html
 <video src="/videos/testVideo.mp4" controls > </video>
 ```
+**Hinweis zum Pfad:** Der Pfad geht von **/docs** als root Ordner aus. D.h. man muss von diesem Ordner ausgehen, egal wo die Datei sich befindet.
+Wenn der Ordner z.b. in **RFYAMS** drin ist, dann lautet der src-Pfad: **/docs/RFYAMS/videos**.
