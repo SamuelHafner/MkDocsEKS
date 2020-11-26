@@ -573,7 +573,7 @@ RFSCOUT -> 20.13.21 -> de en sp
 ```
 6. Im ausgesuchtem Sprachordner die  **index.html** als erstes ausführen. 
 
-
+**Hinweis:** Falls man den Ordner **videos** benötigt, muss man diese auch mitnehmen.
 
 
 ## Tipps und Tricks
