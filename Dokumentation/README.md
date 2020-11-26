@@ -589,9 +589,8 @@ Um Videos einzubetten geht man wie folgt vor:
 1. Die Video Datei unter **/docs/videos** abspeichern (**Bitte nur mp4-Format**)
 2. Den [HTML-Video Tag] (https://wiki.selfhtml.org/wiki/HTML/Multimedia_und_Grafiken/video) in der .md-Datei nutzen und dort gewünschte Optionen einstellen
 ```html
-<video src="/videos/testVideo.mp4" controls > </video>
+<video src="../../../videos/testVideo.mp4" controls > </video>
 ```
-**Hinweis zum Pfad:** Der Pfad geht von **/docs** als root Ordner aus. D.h. man muss von diesem Ordner ausgehen, egal wo die Datei sich befindet.
-Wenn der Ordner z.b. in **RFYAMS** drin ist, dann lautet der src-Pfad: **/docs/RFYAMS/videos**.
+**Hinweis zum Pfad:** Bitte nur den relativen Pfad angeben von dem aktuellen Standord des Pfads aus (Ist vorallem wichtig für die Offline Nutzung)
 
 
